@@ -14,3 +14,16 @@
 $app->get('/', function () use ($app) {
     return $app->version();
 });
+
+/**
+ * Routes for resource province
+ */
+$app->get('provinces', 'ProvincesController@all');
+$app->get('province/{id}', 'ProvincesController@get');
+
+/**
+ * Routes for resource city
+ */
+$app->get('cities', 'CitiesController@all');
+$app->get('city/{id}', 'CitiesController@get');
+$app->get('city/{id}/{parent}' , 'CitiesController@getParent');
