@@ -2,7 +2,7 @@
 
 namespace App\Http\Middleware;
 
-use Laravel\Lumen\Routing\Closure;
+use Closure;
 use Illuminate\Contracts\Auth\Factory as Auth;
 
 class Authenticate
@@ -38,7 +38,6 @@ class Authenticate
         if ($this->auth->guard($guard)->guest()) {
             return response('Unauthorized.', 401);
         }
-
         return $next($request);
     }
 }
