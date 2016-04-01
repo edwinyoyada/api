@@ -7,7 +7,7 @@ class LumenCors
 {
 
     protected $settings = array(
-        'origin' => 'http://angular-gis.dev',    // Wide Open!
+        'origin' => '*',    // Wide Open!
         'allowMethods' => 'GET,HEAD,PUT,POST,DELETE'
     );
 
