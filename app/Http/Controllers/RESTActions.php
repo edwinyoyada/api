@@ -16,7 +16,7 @@ trait RESTActions
     public function get($id)
     {
         $m = self::MODEL;
-        $model = $m::find($id);//->;
+        $model = $m::find($id);
         if (is_null($model)) {
             return $this->respond(Response::HTTP_NOT_FOUND);
         }
@@ -60,21 +60,20 @@ trait RESTActions
     public function getRelationship($relation, $id)
     {
         $m = self::MODEL;
-//        print_r($m);
+
         if (!is_null($m::find($id))) {
             if ($relation == 'cities') {
-                $child = $m::get(['id', 'name'])->find($id);
-                $parent = $m::find($id)->$relation()->orderBy('name', 'asc')->get(['id', 'type', 'name']);
+                $parent = $m::get(['id', 'name'])->find($id);
+                $child = $m::find($id)->$relation()->orderBy('name', 'asc')->get(['id', 'type', 'name']);
             } else if ($m == 'App\City') {
-                $child = $m::get(['id', 'type', 'name'])->find($id);
-                $parent = $m::find($id)->$relation()->orderBy('name', 'asc')->get(['id', 'name']);
+                $parent = $m::get(['id', 'type', 'name'])->find($id);
+                $child = $m::find($id)->$relation()->orderBy('name', 'asc')->get(['id', 'name']);
             } else {
-                $parent = $m::find($id)->$relation()->orderBy('name', 'asc')->get(['id', 'name']);
-                $child = $m::get(['id', 'name'])->find($id);
+                $child = $m::find($id)->$relation()->orderBy('name', 'asc')->get(['id', 'name']);
+                $parent = $m::get(['id', 'name'])->find($id);
             }
-
-            $model = $child;
-            $model[$relation] = $parent;
+            $model = $parent;
+            $model[$relation] = $child;
             if (is_null($model)) {
                 return $this->respond(Response::HTTP_NOT_FOUND);
             }
