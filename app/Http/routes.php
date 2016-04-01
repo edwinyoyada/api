@@ -31,10 +31,10 @@ $app->get('cities', ['middleware' => 'cors', 'uses' => 'CitiesController@all']);
 $app->get('city/{id}', ['middleware' => 'cors', 'uses' => 'CitiesController@get']);
 $app->get('city/{id}/{relation}', ['middleware' => 'cors', 'uses' => 'CitiesController@getRelationship']);
 
-$app->get('districts', ['middleware' => 'cors', 'uses' => 'DistrictsController@all']);
+//$app->get('districts', ['middleware' => 'cors', 'uses' => 'DistrictsController@all']);
 $app->get('district/{id}', ['middleware' => 'cors', 'uses' => 'DistrictsController@get']);
 $app->get('district/{id}/{relation}', ['middleware' => 'cors', 'uses' => 'DistrictsController@getRelationship']);
 
-$app->get('villages', ['middleware' => 'cors', 'uses' => 'VillagesController@all']);
+//$app->get('villages', ['middleware' => 'cors', 'uses' => 'VillagesController@all']);
 $app->get('village/{id}', ['middleware' => 'cors', 'uses' => 'VillagesController@get']);
 $app->get('village/{id}/{relation}', ['middleware' => 'cors', 'uses' => 'VillagesController@getRelationship']);
