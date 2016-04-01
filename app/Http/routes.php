@@ -20,14 +20,14 @@ $app->get('/', function () use ($app) {
  * Routes for resource province
  */
 //$app->post('asd', 'ProvincesController@all')->middleware('auth');
-$app->get('provinces', 'ProvincesController@all');
+$app->get('provinces', ['middleware' => 'cors', 'uses' => 'ProvincesController@all']);
 $app->get('province/{id}', 'ProvincesController@get');
 $app->get('province/{id}/{relation}', 'ProvincesController@getRelationship');
 
 /**
  * Routes for resource city
  */
-$app->get('cities', 'CitiesController@all');
+$app->get('cities', ['middleware' => 'cors', 'uses' => 'CitiesController@all']);
 $app->get('city/{id}', 'CitiesController@get');
 $app->get('city/{id}/{relation}', 'CitiesController@getRelationship');
 
