@@ -21,20 +21,20 @@ $app->get('/', function () use ($app) {
  */
 //$app->post('asd', 'ProvincesController@all')->middleware('auth');
 $app->get('provinces', ['middleware' => 'cors', 'uses' => 'ProvincesController@all']);
-$app->get('province/{id}', 'ProvincesController@get');
-$app->get('province/{id}/{relation}', 'ProvincesController@getRelationship');
+$app->get('province/{id}', ['middleware' => 'cors', 'uses' => 'ProvincesController@get']);
+$app->get('province/{id}/{relation}', ['middleware' => 'cors', 'uses' => 'ProvincesController@getRelationship']);
 
 /**
  * Routes for resource city
  */
 $app->get('cities', ['middleware' => 'cors', 'uses' => 'CitiesController@all']);
-$app->get('city/{id}', 'CitiesController@get');
-$app->get('city/{id}/{relation}', 'CitiesController@getRelationship');
+$app->get('city/{id}', ['middleware' => 'cors', 'uses' => 'CitiesController@get']);
+$app->get('city/{id}/{relation}', ['middleware' => 'cors', 'uses' => 'CitiesController@getRelationship']);
 
-$app->get('districts', 'DistrictsController@all');
-$app->get('district/{id}', 'DistrictsController@get');
-$app->get('district/{id}/{relation}', 'DistrictsController@getRelationship');
+$app->get('districts', ['middleware' => 'cors', 'uses' => 'DistrictsController@all']);
+$app->get('district/{id}', ['middleware' => 'cors', 'uses' => 'DistrictsController@get']);
+$app->get('district/{id}/{relation}', ['middleware' => 'cors', 'uses' => 'DistrictsController@getRelationship']);
 
-$app->get('villages', 'VillagesController@all');
-$app->get('village/{id}', 'VillagesController@get');
-$app->get('village/{id}/{relation}', 'VillagesController@getRelationship');
+$app->get('villages', ['middleware' => 'cors', 'uses' => 'VillagesController@all']);
+$app->get('village/{id}', ['middleware' => 'cors', 'uses' => 'VillagesController@get']);
+$app->get('village/{id}/{relation}', ['middleware' => 'cors', 'uses' => 'VillagesController@getRelationship']);
