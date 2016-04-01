@@ -2,7 +2,7 @@
 
 namespace App\Http\Middleware;
 
-use Closure;
+use Laravel\Lumen\Routing\Closure;
 use Illuminate\Contracts\Auth\Factory as Auth;
 
 class Authenticate

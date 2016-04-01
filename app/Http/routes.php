@@ -11,13 +11,17 @@
 |
 */
 
-$app->get('/', function () use ($app) {
+
+/*$app->get('/', function () use ($app) {
     return $app->version();
-});
+});*/
 
 /**
  * Routes for resource province
  */
+$app->post('asd', ['middleware' => 'auth'], function ($asd) {
+    echo $asd;
+});
 $app->get('provinces', 'ProvincesController@all');
 $app->get('province/{id}', 'ProvincesController@get');
 
@@ -26,4 +30,4 @@ $app->get('province/{id}', 'ProvincesController@get');
  */
 $app->get('cities', 'CitiesController@all');
 $app->get('city/{id}', 'CitiesController@get');
-$app->get('city/{id}/{parent}' , 'CitiesController@getParent');
+$app->get('city/{id}/{parent}', 'CitiesController@getParent');
