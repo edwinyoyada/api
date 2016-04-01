@@ -10,7 +10,7 @@ trait RESTActions
     public function all()
     {
         $m = self::MODEL;
-        return $this->respond(Response::HTTP_OK, $m::all());
+        return $this->respond(Response::HTTP_OK, $m::orderBy('name', 'asc')->get()->all());
     }
 
     public function get($id)
@@ -64,12 +64,12 @@ trait RESTActions
         if (!is_null($m::find($id))) {
             if ($relation == 'cities') {
                 $child = $m::get(['id', 'name'])->find($id);
-                $parent = $m::find($id)->$relation()->get(['id', 'type', 'name']);
+                $parent = $m::find($id)->$relation()->orderBy('name', 'asc')->get(['id', 'type', 'name']);
             } else if ($m == 'App\City') {
                 $child = $m::get(['id', 'type', 'name'])->find($id);
-                $parent = $m::find($id)->$relation()->get(['id', 'name']);
+                $parent = $m::find($id)->$relation()->orderBy('name', 'asc')->get(['id', 'name']);
             } else {
-                $parent = $m::find($id)->$relation()->get(['id', 'name']);
+                $parent = $m::find($id)->$relation()->orderBy('name', 'asc')->get(['id', 'name']);
                 $child = $m::get(['id', 'name'])->find($id);
             }
 
