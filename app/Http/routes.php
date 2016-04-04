@@ -38,3 +38,15 @@ $app->get('district/{id}/{relation}', ['middleware' => 'cors', 'uses' => 'Distri
 //$app->get('villages', ['middleware' => 'cors', 'uses' => 'VillagesController@all']);
 $app->get('village/{id}', ['middleware' => 'cors', 'uses' => 'VillagesController@get']);
 $app->get('village/{id}/{relation}', ['middleware' => 'cors', 'uses' => 'VillagesController@getRelationship']);
+
+
+/**
+ * Routes for resource sicepat/tracking
+ */
+$app->get('sicepat/tracking', 'Sicepat/TrackingsController@all');
+$app->get('sicepat/tracking/{id}', 'Sicepat/TrackingsController@get');
+
+
+$app->get('sicepat/getOrigin', 'Sicepat\CalculatesController@getOrigin');
+$app->get('sicepat/getDestination', 'Sicepat\CalculatesController@getDestination');
+$app->post('sicepat/getTariff', 'Sicepat\CalculatesController@getTariff');
